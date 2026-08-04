@@ -21,14 +21,14 @@ class Solution {
 
 
 /* 
-ex1 - 3,5,2,3
-after sorting
-2,3,3,5
 
-
-
+Dry run ->
 3,5,4,2,4,6
 after sorting
 2,3,4,4,5,6
+max = max(0,8)
+max = max(8,8);
+max = max(8,8)
+ans = 8
 
 */
