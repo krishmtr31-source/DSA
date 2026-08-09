@@ -15,6 +15,10 @@ class Solution {
 
         Arrays.sort(merge);
 
+        // after sorting the merge arrays
+        // copting to the nums 1
+
+        // ans should be return in the num1 
         for (int i = 0; i < m + n; i++) {
             nums1[i] = merge[i];
         }
