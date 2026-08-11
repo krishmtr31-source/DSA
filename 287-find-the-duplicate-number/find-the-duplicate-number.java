@@ -5,28 +5,44 @@ class Solution {
     int slow = 0;
     int fast = 0;
 
-
-        while(true){ // this is for cycle detection
+      while(true){ // this is for cycle detection
             slow = arr[slow];
             fast = arr[fast];
             fast = arr[fast];
 
             if(slow == fast){
-                break;
+               slow = 0;
+
+                while(slow != fast){
+                    slow = arr[slow];
+                    fast = arr[fast];
+                }
+                return slow;
             }
-        }
-
-        slow = 0;
-
-        while(slow != fast){
-            slow = arr[slow];
-            fast = arr[fast];
-        }
-        return slow;
+        } 
     }
        
 }
 
+
+
+        //  while(true){ // this is for cycle detection
+        //     slow = arr[slow];
+        //     fast = arr[fast];
+        //     fast = arr[fast];
+
+        //     if(slow == fast){
+        //         break;
+        //     }
+        // }
+
+        // slow = 0;
+
+        // while(slow != fast){
+        //     slow = arr[slow];
+        //     fast = arr[fast];
+        // }
+        // return slow;
 
   // in this question i modified the array --> .. sorting the array
     
