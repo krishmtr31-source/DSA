@@ -1,29 +1,56 @@
 class Solution {
     public boolean isHappy(int n) {
+        // floyid cycle detection
         int slow = n;
         int fast = n;
 
-        do {
-            slow = findSquare(slow);           // move one step
-            fast = findSquare(findSquare(fast)); // move two step ahead
-        } while(slow != fast);
 
-        if(slow == 1){
-            return true;
+       while(fast != 1){
+            slow = findSquare(slow);           // move one step
+            fast = findSquare(findSquare(fast)); // move two step ahead;
+
+            if(slow == fast && slow != 1){
+               return false;
+            }
         }
-        return false;
+        return true;
+      
     }
     private int findSquare(int number){
-        int ans = 0;
-
-
+        int sum = 0;
         while(number > 0) {
-            int rem = number % 10;
-            ans += rem*rem;
+            int dig = number % 10;
+            sum += dig*dig;
             number /= 10;
         }
-
-
-        return ans;
+        return sum;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
