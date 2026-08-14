@@ -4,7 +4,7 @@ class Solution {
         int start = 0;
         int end = n - 1;
 
-        while (start <= end) {
+        while (start < end) {
             int sum = nums[start] + nums[end];
             if (sum == target) {
                return new int[]{start + 1,end + 1};
@@ -17,7 +17,5 @@ class Solution {
             }
         }
          return new int[]{-1,-1};
-
-
     }
 }
