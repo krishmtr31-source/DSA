@@ -9,13 +9,14 @@ class Solution {
 			nums[i] = max;
 			max = Math.max(current, max);
 		}
-		for (int i = 0; i<n; i++) {
-			res.add(nums[i]) ;
-		}
-        int[] result = new int[n];
-		for(int i = 0; i<n; i++){
-            result[i] = res.get(i);
-        }
-        return result;
+		// for (int i = 0; i<n; i++) {
+		// 	res.add(nums[i]) ;
+		// }
+        // int[] result = new int[n];
+		// for(int i = 0; i<n; i++){
+        //     result[i] = res.get(i);
+        // }
+        return nums;
+
     }
 }
