@@ -3,7 +3,7 @@ class Solution {
 
         int n = nums.length;
         Arrays.sort(nums);
-         int  closest = nums[0] + nums[1] + nums[2];
+         int  closest = 100000;
 
         for (int i = 0; i < n - 2; i++) {
             int j = i + 1, k = n - 1;
@@ -13,7 +13,7 @@ class Solution {
                 int sum = nums[i] + nums[j] + nums[k];
                
 
-                if(Math.abs(sum-target) < Math.abs(closest-target)){
+                if(Math.abs(target - sum) < Math.abs(target - closest)){
                     closest = sum;
                 }
 
@@ -29,12 +29,3 @@ class Solution {
 
     }
 }
-
-/*
-
--1 1 2 4
-
-
-
-
- */
