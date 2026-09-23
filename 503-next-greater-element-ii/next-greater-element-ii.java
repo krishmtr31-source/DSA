@@ -1,22 +1,22 @@
 class Solution {
     public int[] nextGreaterElements(int[] nums) {
+
         int n = nums.length;
 
-        List<Integer> res = new ArrayList<>();
+        ArrayList<Integer> res = new ArrayList<>();
         Stack<Integer> s = new Stack<>();
 
-        for(int i = n-2; i>=0; i--){
+        for (int i = n - 2; i >= 0; i--) {
             s.push(nums[i]);
         }
 
-        for(int i = n-1; i >= 0; i--){
-            while(s.size() != 0 && nums[i] >= s.peek()){
+        for (int i = n - 1; i >= 0; i--) {
+            while (s.size() != 0 && nums[i] >= s.peek()) {
                 s.pop();
-            } 
-            if(s.size() == 0){
-                res.add(-1);
             }
-            else{
+            if (s.size() == 0) {
+                res.add(-1);
+            } else {
                 res.add(s.peek());
             }
             s.push(nums[i]);
@@ -30,5 +30,6 @@ class Solution {
         }
 
         return result;
+
     }
 }
