@@ -46,12 +46,10 @@ class Solution {
             levelcount++;
             if(!flag){
                 Collections.reverse(temp);
-                ans.add(temp);
-                flag = true;
-            }else{
-            ans.add(temp);
-            flag=false;
             }
+             ans.add(temp);
+             flag = !flag;
+            
 
         }
         return ans;
