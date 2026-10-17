@@ -1,6 +1,28 @@
 class Solution {
     public boolean containsDuplicate(int[] nums) {
-        int n = nums.length;
+
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int i = 0; i<nums.length; i++){
+            map.put(nums[i] , map.getOrDefault(nums[i], 0) + 1);
+        }
+
+        for(int i = 0; i<nums.length; i++){
+           if(map.get(nums[i]) != 1){
+              return true;
+            }
+        }
+        return false;
+        
+        
+    }
+}
+
+// this question is also solve through hashset 
+
+// t.c - nlogn
+/*
+
+       int n = nums.length;
 
         Arrays.sort(nums);
 
@@ -10,5 +32,7 @@ class Solution {
             }
         }
         return false;
-    }
-}
+
+
+
+ */
