@@ -6,22 +6,63 @@ class Solution {
         int sum = 0;
         int ans = Integer.MAX_VALUE;
 
-        while (high < n) {
+        while(high < n){
             sum += nums[high];
 
-            while (sum >= target) {
+
+            while(sum >= target){
                 int len = high - low + 1;
-                ans = Math.min(ans, len);
+                ans = Math.min(ans,len);
                 sum -= nums[low];
                 low++;
-              
             }
 
             high++;
         }
-        if(ans == Integer.MAX_VALUE ){
+
+         if(ans == Integer.MAX_VALUE ){
             return 0;
         }
         return ans;
+
+
+
+
+
+       
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
