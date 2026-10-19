@@ -1,42 +1,44 @@
 class Solution {
     public int longestOnes(int[] nums, int k) {
 
-        int n = nums.length;
-        int l = 0;
-        int countZero = 0;
-        int maxans = 0;
+        int low = 0;
+        int ans = 0;
+        int countZeroes = 0;
 
-        for (int r = 0; r < n; r++) {
+        for (int high = 0; high < nums.length; high++) {
 
-            if (nums[r] == 0) {
-                countZero++;
+            if (nums[high] == 0) {
+                countZeroes++;
             }
-
-            while (countZero > k) {
-                if (nums[l] == 0) {
-                    countZero--;
+             
+            while (countZeroes > k) {
+                if (nums[low] == 0) {
+                    countZeroes--;
                 }
-                l++;
-            }
 
-            maxans = Math.max(maxans, r - l + 1);
+                low++;
+
+            }
+            int len = high - low + 1;
+            ans = Math.max(ans, len);
         }
-        return maxans;
+        return ans;
     }
 }
 
 // Brute force 
-/*int maxans = 0;
+/*      int maxans = 0;
 
-      for(int l = 0; l<n; l++){
-           int CountZero = 0;
-          for(int r = l; r<n; r++){
-              if(nums[r] == 0){
-                  CountZero++;
-              } if(CountZero > k){ 
+       for(int l = 0; l<n; l++){
+            int CountZero = 0;
+           for(int r = l; r<n; r++){
+               if(nums[r] == 0){                  
+                CountZero++;
+               } 
+               if(CountZero > k){ 
                   break;
-              }
+                }
               maxans = Math.max(maxans,r-l+1);  
-          }
-      }
+            }
+        }
       return maxans ; */
