@@ -14,9 +14,9 @@ class Solution {
                 char ch1 = s.charAt(low);
                 map.put(ch1, map.getOrDefault(ch1, 0) - 1);
 
-                if(map.get(ch) == 0){
-                    map.remove(ch);
-                }
+                // if(map.get(ch) == 0){
+                //     map.remove(ch);
+                // }
                 low++;
 
             }
