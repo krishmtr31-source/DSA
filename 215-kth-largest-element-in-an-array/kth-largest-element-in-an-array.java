@@ -3,20 +3,23 @@ class Solution {
 
         PriorityQueue<Integer> pq = new PriorityQueue<>();
         int ans = 0;
-
+           
+        // tc of this code is nlogk
         for(int i = 0; i<k; i++){
             pq.add(nums[i]);
         }
         ans = pq.peek();
+        int j = k;
 
-        for(int i = k; i<nums.length; i++){
-            if(ans > nums[i]){
-                continue;
+        while(j < nums.length){
+            if(ans > nums[j]){
+                j++;
             }
             else{
                 pq.poll();
-                pq.add(nums[i]);
+                pq.add(nums[j]);
                 ans = pq.peek();
+                j++;
             }
         }
         return ans;
