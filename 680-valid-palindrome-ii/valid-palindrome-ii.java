@@ -12,7 +12,7 @@ class Solution {
             if (s.charAt(low) == s.charAt(high)) {
                 low++;
                 high--;
-            } else if (s.charAt(low) != s.charAt(high)) {
+            } else{
                 return isPallindrome(s, low + 1, high) || isPallindrome(s, low, high - 1);
             }
         }
