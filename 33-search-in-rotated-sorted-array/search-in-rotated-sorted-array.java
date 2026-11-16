@@ -1,47 +1,76 @@
 class Solution {
     public int search(int[] nums, int target) {
 
-        int n = nums.length;
         int start = 0;
-        int end = n - 1;
+        int end = nums.length - 1;
 
         while (start <= end) {
             int mid = start + (end - start) / 2;
 
-            if (nums[mid] == target) {
+            if(nums[mid] == target){
                 return mid;
             }
 
-            if (nums[mid] > nums[end]) { // part 1
-                if (nums[mid] < target) {
+            else if (nums[start] <= nums[mid]) { // left part is sorted 
+                if (nums[start] <= target && nums[mid] >= target) {
+                    end = mid - 1;
+                } else {
+                    start = mid + 1;
+                }
+            }
+
+            else { // right part is sorted 
+                if (nums[mid] <= target && nums[end] >= target) {
                     start = mid + 1;
                 } else {
-                    if (nums[start] > target) {
-                        start = mid + 1;
-                    } else {
-                        end = mid - 1;
-                    }
-                }
-            } 
-            // part 2
-            else {
-                if (nums[mid] > target) {
                     end = mid - 1;
-                }
-                else {
-                    if (nums[end] < target) {
-                        end = mid - 1;
-                    } else {
-                       start = mid + 1;
-                    }
                 }
             }
         }
-         return -1;
+
+        return -1;
+
+        // int n = nums.length;
+        // int start = 0;
+        // int end = n - 1;
+
+        // while (start <= end) {
+        //     int mid = start + (end - start) / 2;
+
+        //     if (nums[mid] == target) {
+        //         return mid;
+        //     }
+
+        //     if (nums[mid] > nums[end]) { // part 1 // left part is sorted 
+        //         if (nums[mid] < target) {
+        //             start = mid + 1;
+        //         } else { // right m search krunga aur bs 
+        //             if (nums[start] > target) {
+        //                 start = mid + 1;
+        //             } else {
+        //                 end = mid - 1;
+        //             }
+        //         }
+        //     } 
+        //     // part 2
+        //     else {  // right part is sorted 
+        //         if (nums[mid] > target) { // search krunga left part m
+        //             end = mid - 1;
+        //         }
+        //         else { // right m hi rahunga 
+        //             if (nums[end] < target) {
+        //                 end = mid - 1;
+        //             } else {
+        //                start = mid + 1;
+        //             }
+        //         }
+        //     }
+        // }
+        //  return -1;
     }
 }
 
-//  int n = nums.length;
+//         int n = nums.length;
 //         int start = 0;
 //         int end = n - 1;
 
@@ -96,31 +125,3 @@ class Solution {
 //             }
 //             return -1;
 //         }
-
-/* 
-       while (start <= end) {
-            int mid = start + (end - start) / 2;
-            
-            if (nums[mid] == target) {
-                return mid;
-            }
-
-            // part 2 
-            if (nums[start] <= nums[mid]) {
-                if (nums[start] <= target && nums[mid] > target) {
-                    end = mid - 1;
-                } else {
-                    start = mid + 1;
-                }
-            }
-            // part 1  
-            else {
-                if (nums[mid] < target && nums[end] >= target) {
-                    start = mid + 1;
-                } else {
-                    end = mid - 1;
-                }
-            }
-        }
-      return -1;
-*/
